@@ -1,0 +1,33 @@
+<session>
+  <div class = "family_menu">
+    <div class = "schedule_menu">
+      <%= link_to user_schedules_url(current_user), class:"schedule_page" do %>
+        <%= image_tag 'techou.png', class: "schedule_irast col-md-3", :alt => "schedule" %>
+        <div class = "schedule_menu_title">
+          <p>スケジュール表</p>
+        </div>
+        <div class = "schedule_menu_subtitle">
+          <p>~Schedule~</p>
+        </div>
+      <% end %>
+    </div>
+    <div class = "diary_menu">
+      <%= image_tag 'diary.png', class: "diary_irast col-md-3", :alt => "diary" %>
+      <div class = "diary_menu_title">
+        <p>日記</p>
+      </div>
+      <div class = "diary_menu_subtitle">
+        <p>~Diary~</p>
+      </div>
+    </div>
+    <div class = "album_menu">
+      <%= image_tag 'album.png', class: "album_irast col-md-3", :alt => "album" %>
+      <div class = "album_menu_title">
+        <p>アルバム</p>
+      </div>
+      <div class = "album_menu_subtitle">
+        <p>~Album~</p>
+      </div>
+    </div>
+  </div>
+</session>

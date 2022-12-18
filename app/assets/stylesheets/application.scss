@@ -1,0 +1,149 @@
+
+@import "bootstrap";
+@import "simple_calendar";
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  background-color: #ffa5008f;
+  height: 50%;
+}
+
+.pagetitle {
+  font-family: Georgia;
+  color: #ff50748f;
+  margin-left: 15px;
+  margin-top: 20px;
+}
+
+.userList {
+  text-decoration: none !important;
+}
+
+.logcontainer {
+  padding-top: 20px;
+}
+
+.form-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.title-description {
+ font-size: 20px;
+ color: #333333;
+}
+
+.bg {
+  font-size: 30px;
+  color: #222222;
+  background-color:rgba(200,200,180,0.8);
+  width: 400px;
+  height: 200px;
+  border-radius: 20px;
+}
+
+.carousel {
+  background-color: #ffa5008f;
+}
+
+.d-block{
+  height: 100vh;
+  position: relative !important;
+  top: 10%;
+}
+
+.footer {
+  color: #ff50748f;
+  font-size: 25px;
+  background-color: #ffa5008f;
+  position: absolute;
+  width: 100%;
+  height: 130px;
+  margin-top: 0;
+  padding-top: 50px;
+  box-sizing: border-box;
+  text-align: center;
+  font-family: Georgia;
+}
+
+.devise_title {
+  text-align: center;
+  padding-top: 80px;
+}
+
+.new_user {
+  text-align: center;
+  font-size: 18px;
+}
+
+.login_attention {
+  font-size: 20px;
+  text-align: center;
+}
+
+ #user_avatar {
+  padding-left: 250px;
+}
+
+.devise_new {
+  background-image: url(photo.png);
+  width: 100%;
+  height: 100vh;
+}
+
+.pass_help {
+  position: absolute;
+  top: 500px;
+  left: 250px;
+  font-size: 20px;
+}
+
+.form_bg1 {
+  background-color:rgba(255,255,255,0.8);
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  height: 90%;
+  border-radius: 10px;
+}
+
+.form_bg2 {
+  background-color:rgba(255,255,255,0.8);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  height: 70%;
+  border-radius: 10px;
+}
+
+.dropdown {
+  padding-right: 30px;
+  top: -20%;
+  width: 100px;
+  height: 55px;
+  object-fit: cover;
+}
+
+.user-name {
+  position: absolute;
+  right: 8%;
+  top: 3%;
+  font-size: 30px;
+}
+
+#dropdownMenuButton {
+  border: none;
+  background-color: #ffa50000;
+}
+
+.host-icon {
+  vertical-align: middle;
+  border-style: none;
+}

@@ -1,0 +1,40 @@
+<header>
+  <div class = "header">
+    <% if user_signed_in? %>
+      <%= link_to family_url(current_user), class:"userList" do %>
+        <h1 class = "pagetitle">FamilyLog</h1>
+      <% end %>
+    <% else %>
+      <%= link_to families_path , class:"userList" do %>
+      <h1 class = "pagetitle">FamilyLog</h1>
+      <% end %>
+    <% end %>
+    <div class = "logcontainer">
+      <% if user_signed_in? %>
+        <div class = "user-name">
+          <%= current_user.name %>
+        </div>
+        <div class = "dropdown">
+        　<button type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+            <% if current_user.avatar.present? %>
+              <%= image_tag current_user.avatar.url, :size => '70x45', class: "mx-3 p-1 host-icon nav-trigger" %>
+            <% else %>
+              画像なし
+            <% end %>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <li><%= link_to "プロフィール変更", edit_user_registration_path, class: "dropdown-item" %></li>
+            <li><%= link_to "ログアウト", destroy_user_session_path, class: "dropdown-item" %></li>
+          </ul>
+        </div>
+      <% else %>
+        <%= link_to new_user_registration_path do %>
+          <button class="btn btn-primary mr-2">新規登録</button>
+        <% end %>
+        <%= link_to new_user_session_path do %>
+          <button class="btn btn-success ml-2">ログイン</button>
+        <% end %>
+  　   <% end %>
+  　</div>
+  </div>
+</header>

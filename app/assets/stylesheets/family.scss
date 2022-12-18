@@ -1,0 +1,93 @@
+
+@import "bootstrap";
+@import "simple_calendar";
+
+.carousel {
+  background-color: #ffa5008f;
+}
+
+.d-block {
+  height: 100vh;
+  position: relative !important;
+  top: 10%;
+}
+
+.family_menu {
+  background-image: url(family_action.jpg);
+  width: 100%;
+  height: 100vh;
+  font-family: Arial Black;
+}
+
+.schedule_page {
+  text-decoration: none;
+}
+
+.schedule_irast {
+  position: absolute;
+  left: 38%;
+  top: 15%;
+  background-color: #ffa5008f;
+  border-radius: 25%;
+  height: 45vh;
+}
+
+.schedule_menu_title {
+  position: absolute;
+  top: 45%;
+  left: 43%;
+  font-size: 200%;
+}
+
+.schedule_menu_subtitle {
+  position: absolute;
+  top: 50%;
+  left: 43.5%;
+  font-size: 200%;
+}
+
+.diary_irast {
+  position: absolute;
+  left: 13%;
+  top: 60%;
+  background-color: #ffa5008f;
+  border-radius: 25%;
+  height: 45vh;
+}
+
+.diary_menu_title {
+  position: absolute;
+  top: 88%;
+  left: 22%;
+  font-size: 200%;
+}
+
+.diary_menu_subtitle {
+  position: absolute;
+  top: 93%;
+  left: 19.5%;
+  font-size: 200%;
+}
+
+.album_irast {
+  position: absolute;
+  left: 65%;
+  top: 60%;
+  background-color: #ffa5008f;
+  border-radius: 25%;
+  height: 45vh;
+}
+
+.album_menu_title {
+  position: absolute;
+  top: 88%;
+  left: 75%;
+  font-size: 200%;
+}
+
+.album_menu_subtitle {
+  position: absolute;
+  top: 93%;
+  left: 74%;
+  font-size: 200%;
+}
