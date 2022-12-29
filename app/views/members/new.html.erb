@@ -1,0 +1,10 @@
+<%= form_with model: @member, url: user_members_path do |t| %>
+        <%= t.hidden_field :user_id, :value => @user.id %>
+        <div class = "family-member" >
+          <%= t.text_field :name %>
+        </div>
+        <div class="member-submit">
+          <%= t.submit"家族に追加する" %>
+        </div>
+        <% end %>
+  
