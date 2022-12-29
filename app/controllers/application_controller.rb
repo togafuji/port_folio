@@ -11,7 +11,8 @@ class ApplicationController < ActionController::Base
     end
   end
   
-  def after_destroy_user_session_path
+  def after_sign_out_path_for(resource)
+    flash[:notice] = "ログアウトしました" 
     families_path
   end
   
