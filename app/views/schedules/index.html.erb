@@ -2,26 +2,32 @@
 <div class="toppage">
   <h1 class="top">カレンダー</h1><br>
   <div class="row">
-    <div class="col-md-4">
-	    <div class="schedule">今後の予定一覧</div>
+       <div class="col-md-12">
+      <%= month_calendar events: @schedules do |date, schedules| %>
+        <%= date.day %>
+        <% schedules.each do |schedule| %>
+      <div>
+        <%= link_to schedule.title, user_schedule_url(current_user,schedule.id) %>
+      </div>
+        <% end %>
+      <% end %>
+  　</div>
+  　 <div class="col-md-2 member">
+        <div class="membertitle">家族一覧</div>
         <table class="table">
-          <thead class="thead-light">
+            <% @members.each do |member| %>
             <tr>
-              <th>タイトル</th>
-              <th>日程</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @schedules.each do |schedule| %>
-            <tr>
-            <td><%= link_to schedule.title, user_schedule_url(current_user,schedule.id) %></td>
-            <td><%= schedule.start_time.strftime("%m-%d") %></td>
+            <td><%= member.name %></td>
             </tr>
             <% end %>
-          </tbody>
         </table>
+        <%= link_to "家族を追加する",new_user_member_path %>
+        </div>
+         <div class="col-md-3 schedule">
+        <div class="scheduletitle">スケジュールの作成</div>
         <%= form_with(model: @schedule, url: user_schedules_path, local: true ) do |f| %>
         <%= f.hidden_field :user_id, :value => @user.id %>
+        <%= f.hidden_field :member_id, :value => @members.ids %>
         <div class="title">
           <div class="form-tag">タイトル</div>
           <%= f.text_field :title %>
@@ -30,25 +36,42 @@
           <div class="form-tag">内容</div>
           <%= f.text_field :content %>
         </div>
+        <div class="memberschedule">
+          <div class="whomember">誰の予定</div>
+          <%= f.select :whoschedule, @members.pluck(:name) %>
+        </div>
         <div class="time">
           <div class="form-tag">時間</div>
           <%= f.datetime_select :start_time %>
         </div>
         <div class="submit">
-          <%= f.submit %>
+          <%= f.submit"スケジュールを作成する" %>
         </div>
         <% end %>
-    </div>
-    <div class="col-md-12">
-      <%= month_calendar events: @schedules do |date, schedules| %>
-        <%= date.day %>
+        </div>
         
-        <% schedules.each do |schedule| %>
-      <div>
-        <%= link_to schedule.title, user_schedule_url(current_user,schedule.id) %>
+        <div class="col-md-4 schedule">
+	    <div class="scheduletitle">今後の予定一覧</div>
+        <table class="table">
+          <thead class="thead-light">
+            <tr>
+              <th>タイトル</th>
+              <th>日程</th>
+              <th>誰の予定</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @schedules.each do |schedule| %>
+            <tr>
+            <td><%= link_to schedule.title, user_schedule_url(current_user,schedule.id) %></td>
+            <td><%= schedule.start_time.strftime("%m-%d") %></td>
+            <td><%= schedule.whoschedule %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
       </div>
-        <% end %>
-      <% end %>
-  　</div>
+        
+       
   </div>
 </div>

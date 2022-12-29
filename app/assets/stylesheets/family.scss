@@ -19,6 +19,7 @@
   font-family: Arial Black;
 }
 
+
 .schedule_page {
   text-decoration: none;
 }
@@ -30,6 +31,10 @@
   background-color: #ffa5008f;
   border-radius: 25%;
   height: 45vh;
+}
+
+.schedule_irast:hover {
+  opacity: 0.9;
 }
 
 .schedule_menu_title {

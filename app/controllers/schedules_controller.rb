@@ -5,6 +5,7 @@ class SchedulesController < ApplicationController
     @schedules = Schedule.where(user_id: current_user.id).all
     @schedule = Schedule.new
     @user = current_user
+    @members = Member.where(user_id: current_user.id).all
   end
   
   def new
@@ -19,7 +20,7 @@ class SchedulesController < ApplicationController
 
   def create
     Schedule.create(schedule_params)
-    redirect_to user_schedules_path
+    redirect_to user_schedules_path, status: :unprocessable_entity
   end
 
   def destroy
@@ -45,6 +46,10 @@ class SchedulesController < ApplicationController
   private
 
   def schedule_params
-    params.require(:schedule).permit(:title, :content, :start_time, :user_id)
+    params.require(:schedule).permit(:title, :content, :start_time, :user_id, :member_id, :whoschedule)
+  end
+  
+  def member_params
+    params.require(:member).permit(:name, :user_id, :id)
   end
 end
