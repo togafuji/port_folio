@@ -13,7 +13,7 @@
       <% end %>
   　</div>
   　 <div class="col-md-2 member">
-        <div class="membertitle">家族一覧</div>
+        <div class="membertitle text-center">家族一覧</div>
         <table class="table">
             <% @members.each do |member| %>
             <tr>
@@ -24,7 +24,7 @@
         <%= link_to "家族を追加する",new_user_member_path %>
         </div>
          <div class="col-md-3 schedule">
-        <div class="scheduletitle">スケジュールの作成</div>
+        <div class="scheduletitle text-center">スケジュールの作成</div>
         <%= form_with(model: @schedule, url: user_schedules_path, local: true ) do |f| %>
         <%= f.hidden_field :user_id, :value => @user.id %>
         <%= f.hidden_field :member_id, :value => @members.ids %>
@@ -51,9 +51,9 @@
         </div>
         
         <div class="col-md-4 schedule">
-	    <div class="scheduletitle">今後の予定一覧</div>
+	    <div class="scheduletitle text-center">今後の予定一覧</div>
         <table class="table">
-          <thead class="thead-light">
+          <thead class="thead-center">
             <tr>
               <th>タイトル</th>
               <th>日程</th>
@@ -71,6 +71,17 @@
           </tbody>
         </table>
       </div>
+      
+      <div class="col-md-2 schedule">
+	      <div class="scheduletitle text-center">予定の検索</div>
+	        <div class="search-form">
+            <%= form_with url: search_path, method: :get, local: true do |f| %>
+            <%= f.hidden_field :user_id, :value => @user.id %>
+              <%= f.text_field :keyword, value: @keyword %>
+              <%= f.submit "検索" %>
+            <% end %>
+          </div>
+  	 </div>
         
        
   </div>
