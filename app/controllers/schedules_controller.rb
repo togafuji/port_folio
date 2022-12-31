@@ -20,7 +20,7 @@ class SchedulesController < ApplicationController
 
   def create
     Schedule.create(schedule_params)
-    redirect_to user_schedules_path, status: :unprocessable_entity
+    redirect_to user_schedules_path
   end
 
   def destroy
@@ -32,6 +32,13 @@ class SchedulesController < ApplicationController
   def edit
     @schedule = Schedule.find(params[:id])
     @user = current_user
+  end
+  
+  def search
+    @user = current_user
+    @schedules = Schedule.where(user_id: current_user.id).search(params[:keyword])
+    @keyword = params[:keyword]
+    @numbers = @schedules.count
   end
 
   def update
