@@ -14,6 +14,8 @@
 
 .family_menu {
   background-image: url(family_action.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
   width: 100%;
   height: 100vh;
   font-family: Arial Black;
@@ -22,77 +24,59 @@
 
 .schedule_page {
   text-decoration: none;
+  color: #FF9966;
 }
 
 .schedule_irast {
   position: absolute;
-  left: 38%;
-  top: 15%;
+  left: 20%;
+  top: 40%;
   background-color: #ffa5008f;
   border-radius: 25%;
   height: 45vh;
 }
 
-.schedule_irast:hover {
+.schedule_menu:hover {
   opacity: 0.9;
 }
 
 .schedule_menu_title {
   position: absolute;
-  top: 45%;
-  left: 43%;
+  top: 75%;
+  left: 25%;
   font-size: 200%;
 }
 
 .schedule_menu_subtitle {
   position: absolute;
-  top: 50%;
-  left: 43.5%;
+  top: 70%;
+  left: 25.5%;
   font-size: 200%;
 }
 
 .diary_irast {
   position: absolute;
-  left: 13%;
-  top: 60%;
+  left: 55%;
+  top: 40%;
   background-color: #ffa5008f;
   border-radius: 25%;
   height: 45vh;
 }
 
+.diary_menu:hover {
+  opacity: 0.9;
+}
+
 .diary_menu_title {
   position: absolute;
-  top: 88%;
-  left: 22%;
+  top: 75%;
+  left: 65%;
   font-size: 200%;
 }
 
 .diary_menu_subtitle {
   position: absolute;
-  top: 93%;
-  left: 19.5%;
-  font-size: 200%;
-}
-
-.album_irast {
-  position: absolute;
-  left: 65%;
-  top: 60%;
-  background-color: #ffa5008f;
-  border-radius: 25%;
-  height: 45vh;
-}
-
-.album_menu_title {
-  position: absolute;
-  top: 88%;
-  left: 75%;
-  font-size: 200%;
-}
-
-.album_menu_subtitle {
-  position: absolute;
-  top: 93%;
-  left: 74%;
+  top: 70%;
+  left: 63.5%;
   font-size: 200%;
 }
