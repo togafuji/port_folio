@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 <div class="toppage">
-  <h1 class="top">カレンダー</h1><br>
+  <h1 class="top">Family Schedule ~スケジュール表~</h1><br>
   <div class="row">
        <div class="col-md-12">
       <%= month_calendar events: @schedules do |date, schedules| %>
@@ -64,7 +64,7 @@
             <% @schedules.each do |schedule| %>
             <tr>
             <td><%= link_to schedule.title, user_schedule_url(current_user,schedule.id) %></td>
-            <td><%= schedule.start_time.strftime("%m-%d") %></td>
+            <td><%= schedule.start_time.strftime("%-m月%-d日") %></td>
             <td><%= schedule.whoschedule %></td>
             </tr>
             <% end %>
