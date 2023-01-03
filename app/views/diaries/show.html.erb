@@ -1,0 +1,49 @@
+<div class="diary_content">
+<p>
+  <strong>日付</strong>
+  <%= @diary.when_diary.strftime("%Y年%-m月%-d日") %>
+</p>
+<p>
+  <strong>作成者</strong>
+  <%= @diary.whodiary %>
+</p>
+<p>
+  <strong>タイトル</strong>
+  <%= @diary.title %>
+</p>
+<p>
+  <strong>内容</strong>
+  <%= @diary.body %>
+</p>
+<p>
+  <strong>今日の一枚</strong>
+    <% if @diary.avatar.present? %>
+      <%= image_tag @diary.avatar.url, :size => '100x60', class: "diary_avatar" %>
+    <% else %>
+      No Images
+    <% end %>
+</p>
+<div class = "comment_show">
+  <p>コメント一覧</p>
+    <% @comments.each do |comment| %>
+  <p>
+    <%= comment.comment_content %>:<%= comment.who_comment %>
+  </p>
+　  <% end %>
+</div>
+</div>
+<%= link_to '日記を編集', edit_user_diary_path(@user,@diary.id) %>
+<%= button_to '日記を消去', user_diary_path(@diary.id), method: :delete, form: { data: { turbo_confirm: "本当に削除しますか" } } %>
+<%= link_to '戻る', user_diaries_path %>
+</div>
+<div class = "comment_area">
+  <h4>コメントをする</h4>
+    <%= form_with(model: @comment, method: :post) do |f| %>
+    <%= f.text_field :comment_content %>
+    <%= f.select :who_comment, @members.pluck(:name) %>
+    <%= f.hidden_field :user_id, value: @user.id %>
+    <%= f.hidden_field :diary_id, value: @diary.id %>
+    <%= f.submit 'コメントを作成' %>
+    <% end %>
+</div>
+
