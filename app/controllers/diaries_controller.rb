@@ -25,6 +25,23 @@ class DiariesController < ApplicationController
     redirect_to user_diaries_path
   end
   
+  def edit
+    @diary = Diary.find(params[:id])
+    @members = Member.where(user_id: current_user.id).all
+    @user = current_user
+  end
+  
+  def update
+    @diary = Diary.find(params[:id])
+    @user = current_user
+    @members = Member.where(user_id: current_user.id).all
+    if @diary.update(diary_params)
+      redirect_to user_diaries_path(current_user), notice: "日記を編集しました"
+    else
+      render 'edit'
+    end
+  end
+  
   def destroy
     @diary = Diary.find(params[:id])
     @diary.destroy
@@ -32,7 +49,6 @@ class DiariesController < ApplicationController
   end
   
   private
-
   def diary_params
     params.require(:diary).permit(:id, :title, :body, :when_diary, :avatar, :user_id, :whodiary)
   end
