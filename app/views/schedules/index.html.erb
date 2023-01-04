@@ -17,7 +17,7 @@
         <table class="table">
             <% @members.each do |member| %>
             <tr>
-            <td><%= member.name %></td>
+            <td><%= link_to member.name,edit_user_member_path(current_user,member.id) %></td>
             </tr>
             <% end %>
         </table>
@@ -30,19 +30,19 @@
         <%= f.hidden_field :member_id, :value => @members.ids %>
         <div class="title">
           <div class="form-tag">タイトル</div>
-          <%= f.text_field :title %>
+          <%= f.text_field :title, :size=>"35%" %>
         </div>
         <div class="content">
           <div class="form-tag">内容</div>
-          <%= f.text_field :content %>
+          <%= f.text_field :content, :size=>"35%" %>
         </div>
         <div class="memberschedule">
           <div class="whomember">誰の予定</div>
           <%= f.select :whoschedule, @members.pluck(:name) %>
         </div>
         <div class="time">
-          <div class="form-tag">時間</div>
-          <%= f.datetime_select :start_time %>
+          <div class="form-tag">日時</div>
+          <%= f.datetime_select :start_time, year_format: ->(year) { "#{year}年" }, day_format: ->(day) { "#{day}日" } %>
         </div>
         <div class="submit">
           <%= f.submit"スケジュールを作成する" %>
@@ -77,8 +77,10 @@
 	        <div class="search-form">
             <%= form_with url: search_path, method: :get, local: true do |f| %>
             <%= f.hidden_field :user_id, :value => @user.id %>
-              <%= f.text_field :keyword, value: @keyword %>
+              <%= f.text_field :keyword, value: @keyword, :size=>"24%", placeholder: "キーワード" %>
+              <div class = "search_btn">
               <%= f.submit "検索" %>
+              </div>
             <% end %>
           </div>
   	 </div>

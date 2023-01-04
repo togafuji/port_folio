@@ -1,22 +1,26 @@
-<%= form_with(model: @schedule,url: user_schedule_url(@schedule.id), local: true) do |f| %>
-
-  <div class="title">
-    <div class="form-tag">タイトル</div>
-    <%= f.text_field :title %>
-  </div>
-
-  <div class="content">
-    <div class="form-tag">内容</div>
-    <%= f.text_field :content %>
-  </div>
-
+<%= form_with(model: @schedule,url: user_schedule_url(current_user,@schedule.id), local: true) do |f| %>
+  <%= f.hidden_field :user_id, :value => @user.id %>
+  <%= f.hidden_field :member_id, :value => @members.ids %>
+  <div class = "schedule_edit">
+    <div class="title">
+      <div class="form-tag sc">タイトル</div>
+      <%= f.text_field :title %>
+    </div>
+    <div class="content">
+      <div class="form-tag sc">内容</div>
+      <%= f.text_field :content %>
+    </div>
+    <div class="memberschedule">
+      <div class="whomember sc">誰の予定</div>
+      <%= f.select :whoschedule, @members.pluck(:name) %>
+    </div>
     <div class="time">
-    <div class="form-tag">時間</div>
-    <%= f.datetime_select :start_time %>
+      <div class="form-tag sc">時間</div>
+      <%= f.datetime_select :start_time, year_format: ->(year) { "#{year}年" }, day_format: ->(day) { "#{day}日" } %>
+    </div>
+    <br>
+    <div class="submit">
+      <%= f.submit "更新する" %>
+    </div>
   </div>
-
-  <div class="submit">
-    <%= f.submit %>
-  </div>
-
 <% end %>

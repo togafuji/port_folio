@@ -1,21 +1,27 @@
-<p id="notice"><%= notice %></p>
-<div class="schedule_content">
-<p>
-  <strong>タイトル</strong>
-  <%= @schedule.title %>
-</p>
-
-<p>
-  <strong>内容</strong>
-  <%= @schedule.content %>
-</p>
-
-<p>
-  <strong>日時</strong>
-  <%= @schedule.start_time.strftime("%m-%d") %>
-</p>
-
-<%= link_to '編集', edit_user_schedule_path(@schedule) %>
-<%= button_to '消去', user_schedule_path(@schedule.id), method: :delete, form: { data: { turbo_confirm: "本当に削除しますか" } } %>
-<%= link_to '戻る', user_schedules_path %>
-</div>
+<% if @schedule.user_id == current_user.id %>
+  <div class="col-md-9 schedule_contetnt">
+    <table class="table">
+      <thead class="thead-center text-center schedule_in">
+    　　<tr>
+          <th>日時</th>
+          <th>誰の予定</th>
+          <th>タイトル</th>
+          <th>内容</th>
+        </tr>
+      </thead>
+      <tbody class = "text-center">
+        <tr>
+        <td><%= @schedule.start_time.strftime("%Y年%-m月%-d日 %-H時%-M分") %></td>
+        <td><%= @schedule.whoschedule %></td>
+        <td><%= @schedule.title %></td>
+        <td><%= @schedule.content %></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class = "btn_function" >
+      <p class = "item-right"><%= link_to '編集する', edit_user_schedule_path(current_user,@schedule) %></p>
+      <p class = "item"><%= button_to '消去する', user_schedule_path(@schedule.id), method: :delete, form: { data: { turbo_confirm: "本当に削除しますか" } } %></p>
+      <p class = "item-left"><%= link_to '戻る', user_schedules_path %></p>
+    </div>
+  </div>
+<% end %>
