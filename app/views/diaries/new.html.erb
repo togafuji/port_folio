@@ -1,53 +1,29 @@
-<section class="section">
-　<div class="container">
-    <article class="panel">
-      <div class="panel-heading">
-        日記作成
-      </div>
-        <div class="card">
-          <div class="card-content">
-            <div class="media">
-              <%= form_with(model: @diary, url: user_diaries_path, local: true ) do |f| %>
-              <%= f.hidden_field :user_id, :value => @user.id %>
-                <div class="col-md-4 select">
-                  <div class="form-group">
-                    <%= f.label :タイトル %><br />
-                    <%= f.text_field :title, autofocus: true %>
-                  </div>
-                </div>
-                <div class="col-md-4 select">
-                  <div class="form-group">
-                    <%= f.label :日付 %>
-                    <%= f.date_select :when_diary, year_format: ->(year) { "#{year}年" }, day_format: ->(day) { "#{day}日" } %>
-                  </div>
-                </div>
-                <div class="col-md-4 select">
-                  <div class="form-group">
-                    <%= f.label :作成者 %>
-                    <%= f.select :whodiary, @members.pluck(:name) %>
-                  </div>
-                </div> 
-                <div class="col-md-4 select">
-                  <div class="form-group">
-                    <%= f.label :内容 %><br />
-                    <%= f.text_field :body %>
-                  </div>
-                </div>                  
-                <div class="col-md-4 select">
-                  <div class="form-group">
-                   <%= f.label :今日の一枚 %><br />
-                   <%= f.file_field :avatar %>
-                  </div>
-                </div>
-                  <br/>
-                  <br/>
-                  <br/>
-                  <div><%= f.submit "日記を作成", class: "button is-primary" %></div>
-              <% end %>
-            </div>
-          </div>
-        </div>
-    </article>
-  </div>
-</section>
-
+<div class="diary_new">
+  <%= form_with(model: @diary, url: user_diaries_path, local: true ) do |f| %>
+  　<%= f.hidden_field :user_id, :value => @user.id %>
+    <div class="form-group">
+      <%= f.label :タイトル %><br />
+      <%= f.text_field :title, autofocus: true %>
+    </div>
+    <div class="form-group">
+      <%= f.label :日付 %><br />
+      <%= f.date_select :when_diary, year_format: ->(year) { "#{year}年" }, day_format: ->(day) { "#{day}日" } %>
+    </div>
+    <div class="form-group">
+      <%= f.label :作成者 %>
+      <%= f.select :whodiary, @members.pluck(:name) %>
+    </div>
+    <div class="form-group">
+      <%= f.label :日記 %><br />
+      <%= f.text_area :body %>
+    </div>
+    <div class="form-group">
+     <%= f.label :写真 %><br />
+     <%= f.file_field :avatar %>
+    </div>
+    <br>
+    <div>
+      <%= f.submit "日記を作成", class: "button is-primary" %>
+    </div>
+  <% end %>
+</div>
