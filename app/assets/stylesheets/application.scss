@@ -137,3 +137,17 @@
   vertical-align: middle;
   border-style: none;
 }
+
+button{
+  background: none;
+	border: none;
+	color: -webkit-link;
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 15.5px;
+}
+
+textarea{
+  height: 50vh;
+  width: 30%;
+}

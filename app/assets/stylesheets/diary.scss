@@ -9,3 +9,73 @@
 .diary{
   margin: 0 auto;
 }
+
+.diary_creator{
+  display: inline-block;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+.diary_content{
+  background-color: #FFFFCC;
+  text-align:  center;
+  border-radius: 10px;
+  margin: 0 auto;
+  height: 30%;
+}
+
+.diary_link{
+  display: flex;
+  justify-content: center;
+}
+
+.diary_title{
+  margin-right: 10%;
+}
+
+.diary_content tr{
+border: solid 1px;
+background-color: white;
+}
+
+.diary_content th{
+  border: solid 1px;
+}
+
+.diary_content td{
+  overflow-wrap: normal;
+  width: 50vh;
+}
+
+.diary_avatar{
+ width: 50vh;
+}
+
+.diary_comment{
+  display: inline-block;
+}
+
+.comment_show{
+  background-color: #FFFFEE;
+  text-align: center;
+}
+
+.diary_edit{
+  background-color: #FFFFCC;
+  text-align: center;
+}
+
+.diary_form{
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+.diary_new{
+  background-color: #FFFFCC;
+  text-align: center;
+  padding-bottom: 2%;
+}
+
+.form-group{
+  padding-top: 1%;
+}

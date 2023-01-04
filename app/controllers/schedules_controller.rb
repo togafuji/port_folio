@@ -1,5 +1,4 @@
 class SchedulesController < ApplicationController
-  require 'pry'
   
   def index
     @schedules = Schedule.where(user_id: current_user.id).all
@@ -14,8 +13,8 @@ class SchedulesController < ApplicationController
   end
 
   def show
-    @schedule = Schedule.find(params[:id])
     @user = current_user
+    @schedule = Schedule.find(params[:id])
   end
 
   def create
@@ -31,6 +30,7 @@ class SchedulesController < ApplicationController
 
   def edit
     @schedule = Schedule.find(params[:id])
+    @members = Member.where(user_id: current_user.id).all
     @user = current_user
   end
   
@@ -43,20 +43,21 @@ class SchedulesController < ApplicationController
 
   def update
     @schedule = Schedule.find(params[:id])
+    @user = current_user
+    @members = Member.where(user_id: current_user.id).all
     if @schedule.update(schedule_params)
-      redirect_to user_schedules_path, notice: "編集しました"
+      redirect_to user_schedules_path(current_user), notice: "スケジュールを編集しました"
     else
       render 'edit'
     end
   end
 
   private
-
-  def schedule_params
-    params.require(:schedule).permit(:title, :content, :start_time, :user_id, :member_id, :whoschedule)
-  end
-  
-  def member_params
-    params.require(:member).permit(:name, :user_id, :id)
-  end
+    def schedule_params
+      params.require(:schedule).permit(:title, :content, :start_time, :user_id, :member_id, :whoschedule)
+    end
+    
+    def member_params
+      params.require(:member).permit(:name, :user_id, :id)
+    end
 end
