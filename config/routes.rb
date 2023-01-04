@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get "search" => "schedules#search"
   
   resources :users do
-    resources :members,only:[:new, :create]
+    resources :members,only:[:new, :create, :destroy, :update, :edit]
   end
   
   resources :users do
