@@ -1,7 +1,7 @@
 class DiariesController < ApplicationController
   
   def index
-    @diaries = Diary.where(user_id: current_user.id).all
+    @diaries = Diary.where(user_id: current_user.id).all.order(when_diary: :asc)
     @diary = Diary.new
     @user = current_user
   end
@@ -21,8 +21,15 @@ class DiariesController < ApplicationController
   end
   
   def create
-    Diary.create(diary_params)
-    redirect_to user_diaries_path
+    @user = current_user
+    @members = Member.where(user_id: current_user.id).all
+    @diary = Diary.new(diary_params)
+    if @diary.save
+       flash[:notice] = "日記を作成しました"
+       redirect_to user_diaries_path
+    else
+       render 'new'
+    end
   end
   
   def edit

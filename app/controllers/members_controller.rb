@@ -5,8 +5,13 @@ class MembersController < ApplicationController
   end
   
   def create
-    Member.create(member_params)
-    redirect_to user_schedules_path
+    @user = current_user
+    @member = Member.new(member_params)
+    if @member.save
+      redirect_to user_schedules_path, notice: "家族を追加しました"
+    else
+      render 'new'
+    end
   end
   
   def edit
@@ -17,7 +22,7 @@ class MembersController < ApplicationController
   def update
     @member = Member.find(params[:id])
     if @member.update(member_params)
-      redirect_to user_schedules_path, notice: "編集しました"
+       redirect_to user_schedules_path, notice: "編集しました"
     else
       render 'edit'
     end

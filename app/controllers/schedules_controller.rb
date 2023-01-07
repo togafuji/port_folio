@@ -1,7 +1,7 @@
 class SchedulesController < ApplicationController
   
   def index
-    @schedules = Schedule.where(user_id: current_user.id).all
+    @schedules = Schedule.where(user_id: current_user.id).all.order(start_time: :asc)
     @schedule = Schedule.new
     @user = current_user
     @members = Member.where(user_id: current_user.id).all
@@ -10,6 +10,7 @@ class SchedulesController < ApplicationController
   def new
     @schedule = Schedule.new
     @user = current_user
+    @members = Member.where(user_id: @user).all
   end
 
   def show
@@ -18,8 +19,14 @@ class SchedulesController < ApplicationController
   end
 
   def create
-    Schedule.create(schedule_params)
-    redirect_to user_schedules_path
+     @schedule = Schedule.new(schedule_params)
+     @user = current_user
+     @members = Member.where(user_id: @user).all
+    if @schedule.save
+       redirect_to user_schedules_path, notice:"スケジュールを作成しました"
+    else 
+       render 'new'
+    end
   end
 
   def destroy
