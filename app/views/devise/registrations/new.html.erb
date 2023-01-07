@@ -1,4 +1,5 @@
-<section class = "devise_new">
+<div class = "devise_new">
+  <%= render "devise/shared/error_messages", resource: resource %>
   <div class = "form_bg1">
     <div class = "devise_title">
       <h2>FamilyLog</h2>
@@ -6,7 +7,6 @@
     </div><br>
     <%= render "devise/shared/links" %>
   　<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
   　
     <div class="field">
       <%= f.label :①プロフィール画像 %><br />
@@ -41,4 +41,4 @@
     </div>
   <% end %>
   </div>
-</section>
+</div>

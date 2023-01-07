@@ -1,4 +1,4 @@
-<section class = "devise_new">
+<div class = "devise_new">
   <div class = "form_bg2">
     <div class = "devise_title">
       <h2>FamilyLog</h2>
@@ -6,6 +6,7 @@
     </div><br>
     <%= render "devise/shared/links" %>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
       <div class="field">
         <%= f.label :①メールアドレス %><br />
         <%= f.email_field :email, autofocus: true, autocomplete: "Email" %>
@@ -19,4 +20,4 @@
       </div>
     <% end %>
   </div>
-</section>
+</div>
