@@ -2,6 +2,7 @@
   <%= f.hidden_field :user_id, :value => @user.id %>
   <%= f.hidden_field :member_id, :value => @members.ids %>
   <div class = "diary_edit">
+    <%= render "shared/error", obj: @diary %>
     <div class = "diary_form">
       <div class="diary-day">
         <div class="form-tag">日付</div>

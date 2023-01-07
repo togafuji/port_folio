@@ -9,7 +9,7 @@
       <h1 class = "pagetitle">FamilyLog</h1>
       <% end %>
     <% end %>
-    <div class = "logcontainer">
+    <div class = "logcontainer d-flex align-items-cente">
       <% if user_signed_in? %>
         <div class = "user-name">
           <%= current_user.name %>
@@ -19,7 +19,7 @@
             <% if current_user.avatar.present? %>
               <%= image_tag current_user.avatar.url, :size => '70x45', class: "mx-3 p-1 host-icon nav-trigger" %>
             <% else %>
-              画像なし
+              No Image
             <% end %>
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -28,12 +28,11 @@
           </ul>
         </div>
       <% else %>
-        <%= link_to new_user_registration_path do %>
-          <button class="btn btn-primary mr-2">新規登録</button>
-        <% end %>
-        <%= link_to new_user_session_path do %>
-          <button class="btn btn-success ml-2">ログイン</button>
-        <% end %>
+        <div class="d-flex align-items-center me-1">
+      　<%= link_to "新規登録", new_user_registration_path, data: { turbo_method: :post }, class: 'btn btn-primary' %>
+      　<%= link_to "ログイン", new_user_session_path, data: { turbo_method: :post }, class: 'btn btn-success' %>
+      　<%= link_to "ゲストログイン", users_guest_sign_in_path, data: { turbo_method: :post }, class: 'btn btn-secondary' %>
+  　    </div>
   　   <% end %>
   　</div>
   </div>

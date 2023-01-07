@@ -1,4 +1,5 @@
 <div class="diary_new">
+  <%= render "shared/error", obj: @diary %>
   <%= form_with(model: @diary, url: user_diaries_path, local: true ) do |f| %>
   　<%= f.hidden_field :user_id, :value => @user.id %>
     <div class="form-group">
