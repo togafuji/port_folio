@@ -17,7 +17,10 @@
 }
 
 .thead-light{
-  border: 1px solid;
+  font-size: 120%;
+  background: #cde4ff;
+  border-top: solid 5px #5989cf;
+  border-bottom: solid 5px #5989cf;
   text-align: center;
 }
 
@@ -28,10 +31,6 @@
 
 .search_result{
   text-align: center;
-}
-
-.search_btn{
-  float: right;
 }
 
 .content{
@@ -75,4 +74,12 @@
   border-bottom: solid 5px #5989cf;
   margin-right: 35%;
   margin-left: 35%;
+}
+
+.schedule_cell{
+  text-decoration: none;
+}
+
+.schedule_form{
+  text-align: center;
 }
