@@ -76,4 +76,10 @@ group :test do
   gem 'jquery-rails'
   gem 'carrierwave'
   gem 'mini_magick'
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  gem 'rubocop-airbnb'
+  gem 'faker'
+  gem 'rspec-retry'
+  gem 'factory_bot_rails'
 end
