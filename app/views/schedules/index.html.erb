@@ -50,7 +50,7 @@
           </thead>
           <tbody>
             <% @schedules.each do |schedule| %>
-              <% if schedule.start_time.strftime("%-m月%-d日") >= Date.current.strftime("%-m月%-d日") %>
+              <% if schedule.start_time >= Date.current %>
                 <tr>
                 <td><%= link_to schedule.title, user_schedule_url(current_user,schedule.id) %></td>
                 <td><%= schedule.start_time.strftime("%-m月%-d日") %></td>

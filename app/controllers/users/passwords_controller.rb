@@ -6,5 +6,4 @@ class Users::PasswordsController < Devise::PasswordsController
       redirect_to new_user_session_path, alert: "ゲストユーザーのパスワード再設定はできません"
     end
   end
-
 end

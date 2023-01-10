@@ -6,5 +6,4 @@ class Users::RegistrationsController < Devise::RegistrationsController
       redirect_to family_url(current_user), notice: "ゲストユーザーの変更・削除はできません"
     end
   end
-  
 end
