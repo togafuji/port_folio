@@ -10,4 +10,3 @@ FactoryBot.define do
     updated_at { "2022-12-12" }
   end
 end
-

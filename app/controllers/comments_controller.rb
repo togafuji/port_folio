@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   def create
     @comment = current_user.comments.create(comment_params)
-    redirect_back(fallback_location: user_diary_path(current_user,@comment.diary))
+    redirect_back(fallback_location: user_diary_path(current_user, @comment.diary))
   end
 
   private
