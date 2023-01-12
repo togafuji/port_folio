@@ -1,0 +1,33 @@
+<%= form_with(model: @diary,url: user_diary_url(current_user,@diary.id), local: true) do |f| %>
+  <%= f.hidden_field :user_id, :value => @user.id %>
+  <%= f.hidden_field :member_id, :value => @members.ids %>
+  <div class = "diary_edit">
+    <%= render "shared/error", obj: @diary %>
+    <div class = "diary_form">
+      <div class="diary-day">
+        <div class="form-tag">日付</div>
+        <%= f.date_select :when_diary, year_format: ->(year) { "#{year}年" }, day_format: ->(day) { "#{day}日" } %>
+      </div>
+      <div class="who-diary">
+        <div class="form-tag">作成者</div>
+        <%= f.select :whodiary, @members.pluck(:name) %>
+      </div>
+      <div class="diary-title">
+        <div class="form-tag">タイトル</div>
+        <%= f.text_field :title %>
+      </div>
+      <div class="diary-body">
+        <div class="form-tag">日記</div>
+        <%= f.text_area :body %>
+      </div>
+      <div class="diary-photo">
+        <div class="form-tag">写真</div>
+        <%= f.file_field :avatar %>
+      </div>
+      <br>
+      <div class="submit">
+        <%= f.submit "更新する" %>
+      </div>
+    </div>
+  </div>
+<% end %>

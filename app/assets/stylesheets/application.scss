@@ -1,0 +1,168 @@
+@import "bootstrap";
+@import "simple_calendar";
+
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  background-color: #ffa5008f;
+}
+
+.pagetitle {
+  font-family: Georgia;
+  color: #ff50748f;
+  margin-left: 15px;
+  margin-top: 20px;
+}
+
+.userList {
+  text-decoration: none !important;
+}
+
+.logcontainer {
+  padding-top: 2%;
+}
+
+.form-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.title-description {
+ font-size: 20px;
+ color: #333333;
+}
+
+.bg {
+  font-size: 30px;
+  color: #222222;
+  background-color:rgba(200,200,180,0.8);
+  width: 400px;
+  height: 180px;
+  border-radius: 20px;
+}
+
+.footer {
+  color: #ff50748f;
+  font-size: 25px;
+  background-color: #ffa5008f;
+  position: absolute;
+  width: 100%;
+  height: 130px;
+  margin-top: 0;
+  padding-top: 50px;
+  box-sizing: border-box;
+  text-align: center;
+  font-family: Georgia;
+}
+
+.devise_title {
+  text-align: center;
+  padding-top: 80px;
+}
+
+.new_user {
+  text-align: center;
+  font-size: 18px;
+}
+
+.login_attention {
+  font-size: 140%;
+  text-align: center;
+}
+
+ #user_avatar {
+  padding-left: 250px;
+}
+
+.devise_new {
+  background-image: url(photo.png);
+  width: 100%;
+}
+
+.pass_help {
+  position: relative;
+  text-align: center;
+  top: 5%;
+  margin-bottom: 5%;
+}
+
+.form_bg1 {
+  background-color:rgba(255,255,255,0.8);
+  position: relative;
+  left: 25%;
+  width: 50%;
+  border-radius: 10px;
+}
+
+.form_bg2 {
+  background-color:rgba(255,255,255,0.8);
+  position: relative;
+  left: 25%;
+  width: 50%;
+  border-radius: 10px;
+}
+
+.dropdown {
+  object-fit: cover;
+}
+
+.user-name {
+  font-size: 150%;
+}
+
+#dropdownMenuButton {
+  border: none;
+  background-color: #ffa50000;
+}
+
+.host-icon {
+  vertical-align: middle;
+  border-style: none;
+}
+
+button{
+  background: none;
+	border: none;
+	color: -webkit-link;
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 15.5px;
+}
+
+textarea{
+  height: 50vh;
+  width: 30%;
+}
+
+.actions{
+  padding-bottom: 20%;
+}
+
+ul{
+  padding-left:0;
+}
+
+li{
+  list-style:none;
+}
+
+.membereditor{
+  text-align: center;
+}
+
+input[type="submit"]{
+  background: none;
+	border: none;
+	color: -webkit-link;
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 15.5px;
+}
+
+.submit{
+  display: flex;
+  justify-content: center;
+}

@@ -1,0 +1,26 @@
+<%= notice %>
+<div class = "family_menu">
+  <%= image_tag 'family_action.jpg', class: "d-block w-100", :alt => "sea" %>
+  <div class = "schedule_menu">
+    <%= link_to user_schedules_url(current_user), class:"schedule_page" do %>
+      <%= image_tag 'techou.png', class: "schedule_irast col-md-3", :alt => "schedule" %>
+      <div class = "schedule_menu_title">
+        <p>スケジュール表</p>
+      </div>
+      <div class = "schedule_menu_subtitle">
+        <p1>~Schedule~</p1>
+      </div>
+    <% end %>
+  </div>
+  <div class = "diary_menu">
+    <%= link_to user_diaries_url(current_user), class:"schedule_page" do %>
+      <%= image_tag 'diary.png', class: "diary_irast col-md-3", :alt => "diary" %>
+      <div class = "diary_menu_title">
+        <p>日記</p>
+      </div>
+      <div class = "diary_menu_subtitle">
+        <p>~Diary~</p>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<div class = "devise_new">
+  <div class = "form_bg2">
+    <div class = "devise_title">
+      <h2>FamilyLog</h2>
+      <p4>~家族の思い出を共有しよう~</p4>
+    </div><br>
+    <%= render "devise/shared/links" %>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+      <div class="field">
+        <%= f.label :①メールアドレス %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "Email" %>
+      </div><br>
+      <div class="field">
+        <%= f.label :②パスワード %><br />
+        <%= f.password_field :password, autocomplete: "current-Password" %>
+      </div><br>
+      <div class="actions">
+        <%= f.submit "ログイン" %>
+      </div>
+    <% end %>
+  </div>
+</div>

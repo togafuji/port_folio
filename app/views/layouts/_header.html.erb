@@ -1,0 +1,39 @@
+<header>
+  <div class = "header">
+    <% if user_signed_in? %>
+      <%= link_to family_url(current_user), class:"userList" do %>
+        <h1 class = "pagetitle">FamilyLog</h1>
+      <% end %>
+    <% else %>
+      <%= link_to families_path , class:"userList" do %>
+      <h1 class = "pagetitle">FamilyLog</h1>
+      <% end %>
+    <% end %>
+    <div class = "logcontainer d-flex align-items-cente">
+      <% if user_signed_in? %>
+        <div class = "user-name">
+          <%= current_user.name %>
+        </div>
+        <div class = "dropdown">
+        　<button type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+            <% if current_user.avatar.present? %>
+              <%= image_tag current_user.avatar.url, :size => '70x45', class: "mx-3 p-1 host-icon nav-trigger" %>
+            <% else %>
+              No Image
+            <% end %>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <li><%= link_to "プロフィール変更", edit_user_registration_path, class: "dropdown-item" %></li>
+            <li><%= link_to "ログアウト", destroy_user_session_path, data: {"turbo-method": :get}, class: "dropdown-item" %></li>
+          </ul>
+        </div>
+      <% else %>
+        <div class="d-flex align-items-center me-1">
+      　<%= link_to "新規登録", new_user_registration_path, data: { turbo_method: :post }, class: 'btn btn-primary' %>
+      　<%= link_to "ログイン", new_user_session_path, data: { turbo_method: :post }, class: 'btn btn-success' %>
+      　<%= link_to "ゲストログイン", users_guest_sign_in_path, data: { turbo_method: :post }, class: 'btn btn-secondary' %>
+  　    </div>
+  　   <% end %>
+  　</div>
+  </div>
+</header>

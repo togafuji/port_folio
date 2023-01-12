@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+<h1 class = "diary_title">Family Diary ~日記~</h1>
+  <%= link_to "日記を新規作成する", new_user_diary_path, class: "btn btn-ms btn-primary btn-diary" %>
+    <div class="col-md-10 diary">
+      <table class="table">
+        <thead class="thead-center text-center">
+          <tr>
+            <th>日付</th>
+            <th>タイトル</th>
+            <th>作成者</th>
+          </tr>
+        </thead>
+        <tbody class = "text-center">
+          <% @diaries.each do |diary| %>
+            <tr>
+             <td><%= link_to diary.when_diary.strftime("%Y年%-m月%-d日") , user_diary_url(current_user,diary.id) if diary.when_diary %></td>
+             <td><%= diary.title %></td>
+             <td><%= diary.whodiary %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
