@@ -148,3 +148,21 @@ ul{
 li{
   list-style:none;
 }
+
+.membereditor{
+  text-align: center;
+}
+
+input[type="submit"]{
+  background: none;
+	border: none;
+	color: -webkit-link;
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 15.5px;
+}
+
+.submit{
+  display: flex;
+  justify-content: center;
+}

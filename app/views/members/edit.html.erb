@@ -1,12 +1,10 @@
-<%= form_with(model: @member,url: user_member_url, local: true) do |f| %>
-  <div class="title">
-    <div class="form-tag">家族の名前</div>
+<div class = "membereditor">
+  <div class="form-tag sc">家族の名前</div>
+  <%= form_with(model: @member,url: user_member_url, local: true) do |f| %>
     <%= f.text_field :name %>
-  </div>
-
-  <div class="submit">
-    <%= f.submit "更新する" %>
-  </div>
+    <div class="submit"><%= f.submit "編集する" %>
   <% end %>
   <%= button_to '消去', user_member_path, method: :delete, form: { data: { turbo_confirm: "本当に削除しますか" } } %>
   <%= link_to '戻る', user_schedules_path %>
+  </div>
+</div>

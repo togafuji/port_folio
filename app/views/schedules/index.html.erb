@@ -2,64 +2,63 @@
 <div class="toppage">
   <h1 class="top">Family Schedule ~スケジュール表~</h1><br>
   <div class="row">
-       <div class="col-md-12">
+    <div class="col-md-12">
       <%= month_calendar events: @schedules do |date, schedules| %>
         <%= date.day %>
         <% schedules.each do |schedule| %>
-      <div>
-        <%= link_to "・#{schedule.title}", user_schedule_url(current_user,schedule.id), class: "schedule_cell" %>
-      </div>
+          <div>
+            <%= link_to "・#{schedule.title}", user_schedule_path(current_user,schedule.id), class: "schedule_cell" %>
+          </div>
         <% end %>
       <% end %>
   　</div>
-  　 <div class = "col-md-3 member text-center">
-        <div class = "membertitle">家族一覧</div>
-        <table class="table">
-            <% @members.each do |member| %>
-            <tr>
-            <td><%= link_to member.name,edit_user_member_path(current_user,member.id) %></td>
-            </tr>
-            <% end %>
-        </table>
-        <%= link_to "家族を追加する",new_user_member_path %>
-        </div>
-         <div class = "col-md-4 schedule text-center">
-        <div class = "scheduletitle">スケジュールの作成</div>
-        <div class = "makeschedule  mt-4" ><%= link_to "スケジュールを作成する", new_user_schedule_path %></div><br>
-        <div class="scheduletitle text-center">予定の検索</div>
-	        <div class="search-form  mt-4">
-            <%= form_with url: search_path, method: :get, local: true do |f| %>
-            <%= f.hidden_field :user_id, :value => @user.id %>
-              <%= f.text_field :keyword, value: @keyword, :size=>"24%", placeholder: "キーワードを入力して下さい" %>
-              <div class = "search_btn">
-              <%= f.submit "検索" %>
-              </div>
-            <% end %>
-          </div>
-        </div>
-        
-        <div class="col-md-4 schedule">
-	    <div class="scheduletitle text-center">今後の予定一覧</div>
-        <table class="table">
-          <thead class="thead-center">
-            <tr>
-              <th>タイトル</th>
-              <th>日程</th>
-              <th>誰の予定</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @schedules.each do |schedule| %>
-              <% if schedule.start_time >= Date.current %>
-                <tr>
+  　<div class = "col-md-3 member text-center">
+      <div class = "membertitle">家族一覧</div>
+      <table class="table">
+        <% @members.each do |member| %>
+          <tr>
+           <td><%= link_to member.name,edit_user_member_path(current_user,member.id) %></td>
+          </tr>
+        <% end %>
+      </table>
+      <%= link_to "家族を追加する",new_user_member_path %>
+    </div>
+    <div class = "col-md-4 schedule text-center">
+      <div class = "scheduletitle">スケジュールの作成</div>
+      <div class = "makeschedule  mt-4" >
+        <%= link_to "スケジュールを作成する", new_user_schedule_path %>
+      </div><br>
+      <div class="scheduletitle text-center">予定の検索</div>
+      <div class="search-form  mt-4">
+        <%= form_with url: search_path, method: :get, local: true do |f| %>
+          <%= f.hidden_field :user_id, :value => @user.id %>
+          <%= f.text_field :keyword, value: @keyword, :size=>"24%", placeholder: "キーワードを入力して下さい" %>
+          <div class = "search_btn"><%= f.submit "検索" %></div>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-md-4 schedule">
+      <div class="scheduletitle text-center">今後の予定一覧</div>
+      <table class="table">
+        <thead class="thead-center">
+          <tr>
+            <th>タイトル</th>
+            <th>日程</th>
+            <th>誰の予定</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @schedules.each do |schedule| %>
+            <% if schedule.start_time >= Date.current %>
+              <tr>
                 <td><%= link_to schedule.title, user_schedule_url(current_user,schedule.id) %></td>
                 <td><%= schedule.start_time.strftime("%-m月%-d日") %></td>
                 <td><%= schedule.whoschedule %></td>
-                </tr>
-              <% end %>
+              </tr>
             <% end %>
-          </tbody>
-        </table>
-      </div>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
