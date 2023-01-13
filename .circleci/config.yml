@@ -15,10 +15,8 @@ jobs:
             - checkout
             - add_ssh_keys:
                 fingerprints:
-                  # CircleCI上でSSHキー登録を行った際に作成されるfingerprintsを記入！！
-                  - SHA256:N77ns23B/SIzeVcyWEcXW/+xE/+8+uSRldf3AXeyrsk
-            #この箇所の［EC2上のプロジェクトパス］を自身のパスに書き換え！！
-            - run: ssh ${USER_NAME}@${HOST_NAME} 'cd ［EC2上のプロジェクトパス］ && git pull'
+                  - c9:9b:e6:d7:7f:de:19:5c:53:23:94:51:99:f6:5c:9f
+            - run: ssh ${USER_NAME}@${HOST_NAME} 'cd ［https://github.com/togafuji/port_folio.git］ && git pull'
 
 workflows:
     version: 2
