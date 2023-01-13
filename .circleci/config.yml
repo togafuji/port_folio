@@ -1,0 +1,31 @@
+version: 2
+jobs:
+    build:
+        docker:
+            - image: alpine
+        steps:
+            - checkout
+            - run:
+                name: Echo Test
+                command: echo "CircleCI Test"
+    deploy:
+        machine:
+            image: circleci/classic:edge
+        steps:
+            - checkout
+            - add_ssh_keys:
+                fingerprints:
+                  - c9:9b:e6:d7:7f:de:19:5c:53:23:94:51:99:f6:5c:9f
+            - run: ssh ${USER_NAME}@${HOST_NAME} 'cd ［https://github.com/togafuji/port_folio.git］ && git pull'
+
+workflows:
+    version: 2
+    build_and_deploy:
+        jobs:
+            - build
+            - deploy:
+                requires:
+                    - build
+                filters:
+                    branches:
+                        only: main
