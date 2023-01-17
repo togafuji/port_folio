@@ -85,6 +85,6 @@ group :test do
   gem 'rails-erd'
 end
 
-group :production do
-  gem 'unicorn', '5.4.1'
+group :production, :staging do
+  gem 'unicorn'
 end

@@ -1,6 +1,6 @@
-app_path = File.expand_path('../../', __FILE__)
+app_path = File.expand_path('../../../', __FILE__)
 worker_processes 1
-working_directory app_path
+working_directory "#{app_path}/current"
 pid "#{app_path}/tmp/pids/unicorn.pid"
 listen 3000
 stderr_path "#{app_path}/log/unicorn.stderr.log"
@@ -16,7 +16,7 @@ before_fork do |server, worker|
     ActiveRecord::Base.connection.disconnect!
 
   if run_once
-    run_once = false # prevent from firing again
+    run_once = false
   end
 
   old_pid = "#{server.config[:pid]}.oldbin"
