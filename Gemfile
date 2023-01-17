@@ -81,7 +81,6 @@ group :test do
   gem 'rubocop-airbnb'
   gem 'faker'
   gem 'rspec-retry'
-  gem 'factory_bot_rails'
   gem 'rails-erd'
 end
 

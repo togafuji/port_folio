@@ -22,7 +22,7 @@ test:
 
 production:
   <<: *default
-  database: <%= Rails.application.credentials.db[:port_folio] %>
-  username: <%= Rails.application.credentials.db[:root] %>
-  password: <%= Rails.application.credentials.db[:glDowo<h_5m4] %>
-  socket: <%= Rails.application.credentials.db[:/var/lib/mysql/mysql.sock] %>
+  database: db/production.sqlite3
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
