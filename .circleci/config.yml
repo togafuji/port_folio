@@ -16,7 +16,7 @@ jobs:
             - add_ssh_keys:
                 fingerprints:
                   - c9:9b:e6:d7:7f:de:19:5c:53:23:94:51:99:f6:5c:9f
-            - run: ssh ${USER_NAME}@${HOST_NAME} 'cd ［https://github.com/togafuji/port_folio.git］ && git pull'
+            - run: ssh ${USER_NAME}@${HOST_NAME} 'cd ［ssh -i "family2.pem" ec2-user@ec2-43-206-181-167.ap-northeast-1.compute.amazonaws.com］ && git pull'
 
 workflows:
     version: 2
