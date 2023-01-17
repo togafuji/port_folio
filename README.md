@@ -15,7 +15,12 @@
 ![image](https://user-images.githubusercontent.com/110988972/212349475-4a8be7dd-d84c-43a0-89a1-68c298cb391a.png)
 ![image](https://user-images.githubusercontent.com/110988972/212349022-150aaa33-a0cc-4f72-acfd-3576ddad53c3.png)
 ![image](https://user-images.githubusercontent.com/110988972/212349183-dd8a38ff-9b19-496f-95c0-b55ef6dd7010.png)
-![image](https://user-images.githubusercontent.com/110988972/212349284-f1701c57-5ff8-4882-b4c1-02fa1f8a7d2a.png)
+<img width="1421" alt="スクリーンショット 2023-01-13 23 32 51" src="https://user-images.githubusercontent.com/110988972/212869069-e39589b8-7e65-4a3c-bdf2-4c9f491b434e.png">
+
+# 使用方法
+最初にメールアドレス、パスワード、ユーザ名を入力し、アカウントを作成します。ログイン後、スケジュール機能および日記機能を使用できます。
+◯スケジュール機能
+
 
 
 
