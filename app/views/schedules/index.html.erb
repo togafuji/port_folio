@@ -15,13 +15,13 @@
   　<div class = "col-md-3 member text-center">
       <div class = "membertitle">家族一覧</div>
       <table class="table">
-        <% @members.each do |member| %>
+        <% @homemembers.each do |homemember| %>
           <tr>
-           <td><%= link_to member.name：string,edit_user_member_path(current_user,member.id) %></td>
+           <td><%= link_to homemember.name,edit_user_homemember_path(current_user,homemember.id) %></td>
           </tr>
         <% end %>
       </table>
-      <%= link_to "家族を追加する",new_user_member_path %>
+      <%= link_to "家族を追加する",new_user_homemember_path %>
     </div>
     <div class = "col-md-4 schedule text-center">
       <div class = "scheduletitle">スケジュールの作成</div>

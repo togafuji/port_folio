@@ -1,6 +1,6 @@
 <%= form_with(model: @diary,url: user_diary_url(current_user,@diary.id), local: true) do |f| %>
   <%= f.hidden_field :user_id, :value => @user.id %>
-  <%= f.hidden_field :member_id, :value => @members.ids %>
+  <%= f.hidden_field :member_id, :value => @homemembers.ids %>
   <div class = "diary_edit">
     <%= render "shared/error", obj: @diary %>
     <div class = "diary_form">
@@ -10,7 +10,7 @@
       </div>
       <div class="who-diary">
         <div class="form-tag">作成者</div>
-        <%= f.select :whodiary, @members.pluck(:name：string) %>
+        <%= f.select :whodiary, @homemembers.pluck(:name) %>
       </div>
       <div class="diary-title">
         <div class="form-tag">タイトル</div>

@@ -6,4 +6,5 @@ class Diary < ApplicationRecord
 
   validates :title, presence: true
   validates :body, presence: true
+  validates :whodiary, presence: true
 end

@@ -42,7 +42,7 @@
     <div class = "comment_area">
       <%= form_with(model: @comment, method: :post) do |f| %>
         <%= f.text_field :comment_content %>
-        <%= f.select :who_comment, @members.pluck(:name：string) %>
+        <%= f.select :who_comment, @homemembers.pluck(:name) %>
         <%= f.hidden_field :user_id, value: @user.id %>
         <%= f.hidden_field :diary_id, value: @diary.id %>
         <%= f.submit 'コメントする' %>

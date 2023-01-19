@@ -8,7 +8,7 @@ class DiariesController < ApplicationController
   def show
     @diary = Diary.find(params[:id])
     @user = current_user
-    @members = Member.where(user_id: current_user.id).all
+    @homemembers = Homemember.where(user_id: current_user.id).all
     @comments = @diary.comments
     @comment = @user.comments.new
   end
@@ -16,12 +16,12 @@ class DiariesController < ApplicationController
   def new
     @diary = Diary.new
     @user = current_user
-    @members = Member.where(user_id: current_user.id).all
+    @homemembers = Homemember.where(user_id: current_user.id).all
   end
 
   def create
     @user = current_user
-    @members = Member.where(user_id: current_user.id).all
+    @homemembers = Homemember.where(user_id: current_user.id).all
     @diary = Diary.new(diary_params)
     if @diary.save
       flash[:notice] = "日記を作成しました"
@@ -33,14 +33,14 @@ class DiariesController < ApplicationController
 
   def edit
     @diary = Diary.find(params[:id])
-    @members = Member.where(user_id: current_user.id).all
+    @homemembers = Homemember.where(user_id: current_user.id).all
     @user = current_user
   end
 
   def update
     @diary = Diary.find(params[:id])
     @user = current_user
-    @members = Member.where(user_id: current_user.id).all
+    @homemembers = Homemember.where(user_id: current_user.id).all
     if @diary.update(diary_params)
       redirect_to user_diaries_path(current_user), notice: "日記を編集しました"
     else

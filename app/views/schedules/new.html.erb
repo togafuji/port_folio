@@ -2,7 +2,7 @@
 <%= render "shared/error", obj: @schedule %>
 <%= form_with model: @schedule, url: user_schedules_path, local: true do |f| %>
 <%= f.hidden_field :user_id, :value => @user.id %>
-<%= f.hidden_field :member_id, :value => @members.ids %>
+<%= f.hidden_field :member_id, :value => @homemembers.ids %>
   <div class="title">
     <div class="form-tag sc">タイトル</div>
     <%= f.text_field :title, :size=>"35%" %>
@@ -13,7 +13,7 @@
   </div>
   <div class="memberschedule">
     <div class="whomember sc">誰の予定</div>
-    <%= f.select :whoschedule, @members.pluck(:name：string) %>
+    <%= f.select :whoschedule, @homemembers.pluck(:name) %>
   </div>
   <div class="time">
     <div class="form-tag sc">日時</div>

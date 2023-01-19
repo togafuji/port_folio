@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_19_112915) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_19_170958) do
   create_table "comments", force: :cascade do |t|
     t.string "comment_content"
     t.string "who_comment"
@@ -33,10 +33,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_19_112915) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "members", force: :cascade do |t|
-    t.string "name：string"
+  create_table "homemembers", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
     t.integer "user_id"
   end
 
@@ -47,7 +47,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_19_112915) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
-    t.integer "member_id"
     t.string "whoschedule"
   end
 

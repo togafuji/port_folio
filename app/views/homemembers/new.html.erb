@@ -1,10 +1,10 @@
 <div class = "family_make text-center">
-  <%= render "shared/error", obj: @member %>
-  <%= form_with model: @member, url: user_members_path do |t| %>
+  <%= render "shared/error", obj: @homemember %>
+  <%= form_with model: @homemember, url: user_homemembers_path do |t| %>
   <%= t.hidden_field :user_id, :value => @user.id %>
     <div class = "family-member m-5" >
       <%= t.label :名前を入力 %><br>
-      <%= t.text_field :name：string %>
+      <%= t.text_field :name %>
     </div>
     <div class="member-submit">
       <%= t.submit"家族に追加する" %>

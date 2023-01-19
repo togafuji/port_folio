@@ -3,13 +3,13 @@ class SchedulesController < ApplicationController
     @schedules = Schedule.where(user_id: current_user.id).all.order(start_time: :asc)
     @schedule = Schedule.new
     @user = current_user
-    @members = Member.where(user_id: current_user.id).all
+    @homemembers = Homemember.where(user_id: current_user.id).all
   end
 
   def new
     @schedule = Schedule.new
     @user = current_user
-    @members = Member.where(user_id: @user).all
+    @homemembers = Homemember.where(user_id: @user).all
   end
 
   def show
@@ -20,7 +20,7 @@ class SchedulesController < ApplicationController
   def create
     @schedule = Schedule.new(schedule_params)
     @user = current_user
-    @members = Member.where(user_id: @user).all
+    @homemembers = Homemember.where(user_id: @user).all
     if @schedule.save
       redirect_to user_schedules_path, notice: "スケジュールを作成しました"
     else
@@ -36,7 +36,7 @@ class SchedulesController < ApplicationController
 
   def edit
     @schedule = Schedule.find(params[:id])
-    @members = Member.where(user_id: current_user.id).all
+    @homemembers = Homemember.where(user_id: current_user.id).all
     @user = current_user
   end
 
@@ -50,7 +50,7 @@ class SchedulesController < ApplicationController
   def update
     @schedule = Schedule.find(params[:id])
     @user = current_user
-    @members = Member.where(user_id: current_user.id).all
+    @homemembers = Homemember.where(user_id: current_user.id).all
     if @schedule.update(schedule_params)
       redirect_to user_schedules_path(current_user), notice: "スケジュールを編集しました"
     else
@@ -62,9 +62,5 @@ class SchedulesController < ApplicationController
 
   def schedule_params
     params.require(:schedule).permit(:title, :content, :start_time, :user_id, :member_id, :whoschedule)
-  end
-
-  def member_params
-    params.require(:member).permit(:name：string, :user_id, :id)
   end
 end
