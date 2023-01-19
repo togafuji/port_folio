@@ -8,7 +8,7 @@
           body: 日記
           title: タイトル
         member:
-          name: 名前
+          name：string: 名前
 
 ja:
   date:

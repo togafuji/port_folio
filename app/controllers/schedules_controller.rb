@@ -42,7 +42,7 @@ class SchedulesController < ApplicationController
 
   def search
     @user = current_user
-    @schedules = Schedule.where(user_id: current_user.id).search(params[:keyword])
+    @schedules = Schedule.where(user_id: current_user.id).search(params[:keyword]).order(start_time: :asc)
     @keyword = params[:keyword]
     @numbers = @schedules.count
   end
@@ -65,6 +65,6 @@ class SchedulesController < ApplicationController
   end
 
   def member_params
-    params.require(:member).permit(:name, :user_id, :id)
+    params.require(:member).permit(:name：string, :user_id, :id)
   end
 end
