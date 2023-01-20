@@ -15,35 +15,23 @@
 ![image](https://user-images.githubusercontent.com/110988972/212349475-4a8be7dd-d84c-43a0-89a1-68c298cb391a.png)
 ![image](https://user-images.githubusercontent.com/110988972/212349022-150aaa33-a0cc-4f72-acfd-3576ddad53c3.png)
 ![image](https://user-images.githubusercontent.com/110988972/212349183-dd8a38ff-9b19-496f-95c0-b55ef6dd7010.png)
-<img width="1421" alt="スクリーンショット 2023-01-13 23 32 51" src="https://user-images.githubusercontent.com/110988972/212869069-e39589b8-7e65-4a3c-bdf2-4c9f491b434e.png">
+![image](https://user-images.githubusercontent.com/110988972/212869069-e39589b8-7e65-4a3c-bdf2-4c9f491b434e.png)
 
 # 使用方法
 最初にメールアドレス、パスワード、ユーザ名を入力し、アカウントを作成します。ログイン後、スケジュール機能および日記機能を使用できます。
 ◯スケジュール機能
+　スケジュールのタイトル、内容、日時、誰の予定かを入力すると、該当する日のカレンダーにスケジュールのタイトルが表示されます。
+　タイトルをクリックすると、入力した内容を確認することができます。今日以降の予定は、カレンダー外の予定にも記載されます。
+　検索機能を使うことで、いつの誰の予定かをすぐに確認できます。
 
+◯日記機能
+　日記のタイトル、内容、誰の日記か入力します。また画像を１枚投稿することができます。
+　投稿した日記は、日付順に表示がされます。また日記を閲覧した際には、コメントをすることも可能です。
 
-
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-  ruby 2.7.5
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# こだわりポイント
+　誰でも使いやすいように、レイアウトを大きく、またシンプルなデザインにしました。
+　あらかじめ家族の名前を登録することで、スケジュールや日記に投稿者をその中から選択できるようにしました。
+　コミュニケーションのとりやすさを意識して、スケジュール機能だけでなく日記や、日記に対するコメント機能を作成しました。
+　
+# ER図
+　<%= image_tag asset_path('er.png') %>
