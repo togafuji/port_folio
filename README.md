@@ -34,4 +34,4 @@
 　コミュニケーションのとりやすさを意識して、スケジュール機能だけでなく日記や、日記に対するコメント機能を作成しました。
 　
 # ER図
-　<%= image_tag asset_path('er.png') %>
+![image](https://user-images.githubusercontent.com/110988972/213737031-651aa556-80cf-418d-989d-43189db02076.png)
