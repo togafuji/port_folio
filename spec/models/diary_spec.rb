@@ -1,7 +1,6 @@
 require 'rails_helper'
-require 'pry'
 
-RSpec.describe Member, type: :model do
+RSpec.describe Diary, type: :model do
   describe "スケジュール機能のテスト" do
     let(:user) { create(:user) }
     let(:diary) { create(:diary, user: user) }

@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'pry'
 
 RSpec.describe "Diaries", type: :system do
   let!(:user) { create(:user) }
@@ -26,6 +25,7 @@ RSpec.describe "Diaries", type: :system do
 
   describe "GET /show" do
     before do
+      login(user)
       visit user_diary_path(user.id, diary.id)
     end
 

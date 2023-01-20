@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe "Schedules", type: :system do
-  let!(:user) { create(:user) }
-  let!(:member) { create(:member, user: user) }
-  let!(:schedule) { create(:schedule, user: user, member: member) }
+  let(:user) { create(:user) }
+  let(:homemember) { create(:homemember, user: user) }
+  let!(:schedule) { create(:schedule, user: user) }
 
   describe "GET /index" do
     before do
@@ -16,12 +16,13 @@ RSpec.describe "Schedules", type: :system do
     end
 
     it "家族一覧の表示" do
-      expect(page).to have_content member.name
+      expect(page).to have_content homemember.name
     end
   end
 
   describe "GET /show" do
     before do
+      login(user)
       visit user_schedule_path(user.id, schedule.id)
     end
 
@@ -30,7 +31,7 @@ RSpec.describe "Schedules", type: :system do
     end
 
     it "スケジュールの作成者の表示" do
-      expect(page).to have_content schedule.member.name
+      expect(page).to have_content schedule.whoschedule
     end
 
     it "スケジュールのタイトルの表示" do
