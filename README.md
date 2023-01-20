@@ -35,3 +35,6 @@
 　
 # ER図
 ![image](https://user-images.githubusercontent.com/110988972/213737031-651aa556-80cf-418d-989d-43189db02076.png)
+
+# サービスのURL
+http://ec2-43-206-181-167.ap-northeast-1.compute.amazonaws.com/
